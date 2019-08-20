@@ -22,6 +22,8 @@ Windowsのデフォルトの設定では、ファイルパスが長すぎるの�
 * `Enable Win32 long paths`をダブルクリックしEnabledに設定する  
 * コマンドラインで、`gpupdate /force`を実行する（その後、ログオフする）  
 
+![](./pict/win_paths.png)
+
 （参考）  
 https://blogs.msdn.microsoft.com/jeremykuhne/2016/07/30/net-4-6-2-and-long-paths-on-windows-10/  
 https://docs.microsoft.com/en-gb/windows/desktop/FileIO/naming-a-file  
