@@ -2,6 +2,12 @@
 
 # Workshop 1: Mbed CLIのインストールとビルド
 
+このワークショップでは、以下を行います。
+
+* Mbed CLI（オフライン開発環境）のインストール
+* Mbed OSのサンプルコードのインポートとビルド
+* ターゲットボードへの書き込みと実行
+
 ## インストール
 
 以下のリンク先から、使用するホストマシン用のインストーラを使用して必要なソフトウェアをインストールします。
@@ -59,7 +65,7 @@ Supported toolchains: 4
 ```
 mbed compile -t <toolchain> -m <module>  
 ```
-このワークショップではtoolchainに、GCC_ARMが指定可能です。moduleには、mbed detectコマンドで表示された Target名を使用します。
+このワークショップではtoolchainに、GCC_ARMが指定可能です。moduleには、mbed detectコマンドで表示された Target名を使用します。  
 
 実行例:
 ```
@@ -87,13 +93,32 @@ $ copy BUILD/DISCO_L475VG_IOT01A/GCC_ARM/mbed-os-example-blinky.bin D: (windows)
 
 ## サンプルコードを変更してビルドする
 
-アイディア
+変更の例:
 * シリアルポートに特定の文字列を表示する
 * LEDの点滅パターンを変更する
 
 編集するファイルは、サンプルコードのトップレベルディレクトリ (mbed-os-example-blinky) の main.cpp です。
 
-
 # Workshop 2 : Network Socket
 
+このワークショップでは、以下を行います
+
+* Ethernet接続用のサンプルコードをインポート
+* Network Socket APIを使用し、サンプルコードをWi-Fi接続に変更
+* ビルドとターゲットボードへの書き込み
+* シリアルターミナルでアプリケーションの実行を確認
+
+## Echo Server サンプルアプリケーション
+
+![](./pict/echoserver.png)
+
+（参考）  
+https://en.wikipedia.org/wiki/Echo_Protocol
+
+## ビルド手順
+
+
+# Workshop 3 : Pelion Device Management
+
+# Workshop 4 : Firmware update
 
