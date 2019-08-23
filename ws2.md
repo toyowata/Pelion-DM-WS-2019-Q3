@@ -133,14 +133,14 @@ int ret = wifi->connect(MBED_CONF_APP_WIFI_SSID, MBED_CONF_APP_WIFI_PASSWORD, NS
 #define MBED_CONF_APP_WIFI_SSID                                               "SSID"                                                                                           // set by application
 ```
 
-プログラム側では、`connect()`関数のパラメータとして、SSIDとパスワードを指定します。
+Wi-Fi接続を使用したプログラム側では、`connect()`関数のパラメータとして、SSIDとパスワードを指定します。
 
 main.cpp
 
 ```cpp
     int ret = net.connect(MBED_CONF_APP_WIFI_SSID, MBED_CONF_APP_WIFI_PASSWORD, NSAPI_SECURITY_WPA_WPA2);
 ```
-以下のようにマクロが展開されます。
+このコードは、以下のようにマクロ展開されます。
 
 ```cpp
     int ret = net.connect("SSID", "PASSWORD", NSAPI_SECURITY_WPA_WPA2);
