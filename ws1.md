@@ -70,7 +70,7 @@ mbed compile -t <toolchain> -m <module>
 $ mbed compile -t GCC_ARM -m DISCO_L475VG_IOT01A
 ```
 
-ビルドされたバイナリファイルをドラッグアンドドロップする、または以下のようにコマンドを実行する。
+ビルドされたバイナリファイルをUSBマスストレージにドラッグアンドドロップするか、以下のようにコマンドを実行します。
 
 ```
 cp BUILD/<target>/<toolchain>/mbed-os-example-blinky.bin <mount point>
@@ -84,7 +84,7 @@ $ copy BUILD/DISCO_L475VG_IOT01A/GCC_ARM/mbed-os-example-blinky.bin D: (windows)
 
 ## シリアルポートをモニタする
 
-様々なシリアルポートモニタのソフトウェアを使用可能です。例：CoolTerm、TeraTerm、Mbed CLI の “mbed sterm” コマンドが使用できます。
+様々なシリアルポートモニタのソフトウェアが使用可能です。例：CoolTerm、TeraTerm、またはMbed CLIの `mbed sterm`コマンドが使用できます。
 
 ![](./pict/mbed_sterm.png)
 ![](./pict/coolterm.png)
