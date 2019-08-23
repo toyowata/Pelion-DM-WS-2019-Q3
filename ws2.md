@@ -71,15 +71,145 @@ $ mbed add wifi-ism43362
 
 ## Wi-Fi接続用のコンフィグレーション
 
-Wi-Fi用のサンプルコードの設定を参照にするのが簡単な方法です。
+接続用の設定は、Wi-Fi接続用サンプルコードの設定を参照にするのが簡単な方法です。
 
 https://github.com/ARMmbed/mbed-os-example-wifi
 
 ![](./pict/wifi_config.png)
 
 ## コンフィグレーションのヒント
+Wi-Fi接続用サンプルコードでは、アクセスポイントのSSIDやパスワードは以下のように設定、使用されています。
 
-https://github.com/ARMmbed/mbed-os-example-wifi/blob/700c55a8af59adc649626a903328830b48aa0b4f/main.cpp#L96
+https://github.com/ARMmbed/mbed-os-example-wifi
 
-https://github.com/ARMmbed/mbed-os-example-wifi/blob/700c55a8af59adc649626a903328830b48aa0b4f/mbed_app.json#L1-L17
+[mbed_app.json](https://github.com/ARMmbed/mbed-os-example-wifi/blob/700c55a8af59adc649626a903328830b48aa0b4f/mbed_app.json#L1-L17)
 
+```json
+{
+    "config": {
+        "wifi-ssid": {
+            "help": "WiFi SSID",
+            "value": "\"SSID\""
+        },
+        "wifi-password": {
+            "help": "WiFi Password",
+            "value": "\"PASSWORD\""
+        }
+    },
+    "target_overrides": {
+        "*": {
+            "platform.stdio-convert-newlines": true
+        }
+    }
+}
+```
+
+[main.cpp](https://github.com/ARMmbed/mbed-os-example-wifi/blob/700c55a8af59adc649626a903328830b48aa0b4f/main.cpp#L96)
+
+```cpp
+int ret = wifi->connect(MBED_CONF_APP_WIFI_SSID, MBED_CONF_APP_WIFI_PASSWORD, NSAPI_SECURITY_WPA_WPA2);
+```
+
+## ビルド時に自動生成されるmbed_config.hファイル
+
+./BUILD/DISCO_L475VG_IOT01A/GCC_ARM/mbed_config.h
+
+```cpp
+// Automatically generated configuration file.
+// DO NOT EDIT, content will be overwritten.
+
+#ifndef __MBED_CONFIG_DATA__
+#define __MBED_CONFIG_DATA__
+
+// Configuration parameters
+#define CLOCK_SOURCE                                                          USE_PLL_MSI                                                                                      // set by target:DISCO_L475VG_IOT01A
+#define LPTICKER_DELAY_TICKS                                                  1                                                                                                // set by target:FAMILY_STM32
+#define MBED_CONF_APP_WIFI_PASSWORD                                           "PASSWORD"                                                                                       // set by application
+#define MBED_CONF_APP_WIFI_SSID                                               "SSID"                                                                                           // set by application
+```
+
+プログラム側では、`connect()`関数のパラメータとして、SSIDとパスワードを指定します。
+
+main.cpp
+
+```cpp
+    int ret = net.connect(MBED_CONF_APP_WIFI_SSID, MBED_CONF_APP_WIFI_PASSWORD, NSAPI_SECURITY_WPA_WPA2);
+```
+以下のようにマクロが展開されます。
+
+```cpp
+    int ret = net.connect("SSID", "PASSWORD", NSAPI_SECURITY_WPA_WPA2);
+```
+
+## 手順のまとめ
+
+* アプリケーション（サンプルコード）をインポートする
+* アプリケーションをWi-Fi接続用に変更する
+  * 適切なWi-Fiドライバを追加する `mbed add <GitHub repo name>`
+  * `main.cpp`で適切なWi-Fiドライバのヘッダファイル(.h)をインクルードする
+  * 使用するWi-Fiアクセスポイントの接続情報（SSID、パスワード、セキュリティ）を設定する
+  * TCP Echo serverのアドレスとポートを確認する
+  * 参考ドキュメント : 
+    * https://os.mbed.com/docs/mbed-os/v5.13/apis/socket.html#socket-class-reference
+* エコーメッセージを変更する
+* `mbed_app.json`に設定を行う
+
+## 回答編
+
+mbed_app.json
+
+```json
+{
+    "config": {
+        "wifi-ssid": {
+            "help": "WiFi SSID",
+            "value": "\"SSID\""
+        },
+        "wifi-password": {
+            "help": "WiFi Password",
+            "value": "\"PASSWORD\""
+        }
+    },
+    "target_overrides": {
+        "*": {
+            "platform.stdio-convert-newlines": true
+        }
+    }
+}
+```
+
+main.cpp
+
+```cpp
+#include "mbed.h"
+
+// TODO: include corresponding network driver header file
+//#include "EthernetInterface.h"
+#include "ISM43362Interface.h"
+
+// TODO: define network interface object
+//EthernetInterface net;
+ISM43362Interface net;
+
+// TODO: confirm IP address and port of TCP echo server
+
+// Internal echo server
+// #define echo_server "192.168.1.2"
+// #define port 5001
+
+// Public echo server
+#define echo_server "echo.mbedcloudtesting.com"
+#define port 7
+
+// Socket demo
+int main() {
+
+    // Bring up the network interface
+    printf("\nSimple TCP socket example\n");
+
+    // TODO: Connect using either Ethernet or WiFi
+    // Ethernet
+    //int ret = net.connect();
+    int ret = net.connect(MBED_CONF_APP_WIFI_SSID, MBED_CONF_APP_WIFI_PASSWORD, NSAPI_SECURITY_WPA_WPA2);
+
+```
