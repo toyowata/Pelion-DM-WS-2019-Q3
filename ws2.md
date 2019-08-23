@@ -20,11 +20,14 @@ https://en.wikipedia.org/wiki/Echo_Protocol
 
 ```
 $ mbed import https://os.mbed.com/teams/Mbed-IoT-workshop/code/mbed-os-workshop-sockets
+```
+DISCO_L475VG_IOT01A用にビルドを行います。
+```
 $ cd mbed-os-workshop-sockets
 $ mbed compile -m DISCO_L475VG_IOT01A -t gcc_arm
 ```
 
-このサンプルコードは、Ethernet用なので、DISCO_L475VG_IOT01A でビルドするとリンクエラーが発生します。
+このサンプルコードはEthernet用なので、DISCO_L475VG_IOT01Aでビルドするとリンクエラーが発生します。
 
 ```
 Link: mbed-os-workshop-sockets
@@ -46,11 +49,11 @@ EthernetInterface net;
 
 ## Wi-Fiドライバの検索
 
-以下のサイトを表示します。  
+DISCO_L475VG_IOT01Aボードのページを表示します。  
 
 https://os.mbed.com/platforms/ST-Discovery-L475E-IOT01A/
 
-featuresセクションから、Wi-Fiに関する記載を調べます。
+featuresセクションから、Wi-Fiモジュールに関する記載を調べます。
 
 ![](./pict/wifi.png)
 
@@ -154,7 +157,7 @@ main.cpp
 * エコーメッセージを変更する
 * `mbed_app.json`に設定を行う
 
-## 回答編
+# 回答編
 
 mbed_app.json
 
@@ -212,4 +215,5 @@ int main() {
     //int ret = net.connect();
     int ret = net.connect(MBED_CONF_APP_WIFI_SSID, MBED_CONF_APP_WIFI_PASSWORD, NSAPI_SECURITY_WPA_WPA2);
 
+// 以下省略
 ```
