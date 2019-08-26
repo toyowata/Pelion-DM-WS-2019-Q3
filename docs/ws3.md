@@ -28,5 +28,40 @@ Mbedアカウントを作成していない場合は、以下の画面が表示�
 
 ## ポータルサイトにアクセスする
 
+スクロールダウンして、`Launch the Portal`ボタンをクリックする。
 
+![](./pict/pelion_portal.png)
+
+## ポータルにサインインする
+https://portal.mbedcloud.com/login
+
+`Log in with account.mbed.com`をクリックする。
+
+![](./pict/portal_login.png)
+
+## ポータルサイトのダッシュボードが表示される
+
+![](./pict/portal_dashboard.png)
+
+## プログラムのインポートとmanifestツールのインストール
+
+コマンドラインから、以下のコマンドを実行します。
+
+```
+$ mbed import https://os.mbed.com/teams/ST/code/pelion-example-disco-iot01/
+$ cd pelion-example-disco-iot01
+```
+manifestツールがインストールされているか確認します。
+
+```
+$ manifest-tool -h
+```
+
+上記コマンドでエラーが出る場合は、manifestツールをインストールします。
+
+```
+pip install –U "git+https://github.com/ARMmbed/manifest-tool"
+```
+
+## PelionポータルサイトからAPIキーを取得する
 

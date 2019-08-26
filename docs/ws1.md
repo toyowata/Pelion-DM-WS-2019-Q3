@@ -17,7 +17,7 @@ https://os.mbed.com/docs/mbed-os/v5.13/tools/installation-and-setup.html
 ```
 $ pip install -U mbed-cloud-sdk mbed-cli manifest-tool
 ```
-
+Macの場合は、`--user`オプションも指定してください。
 
 ## Windowsのみ：MAX_PATH制限とGCC_ARMでのコンパイルエラー
 
@@ -44,6 +44,9 @@ $ cd mbed-os-example-blinky
 ```
 
 * USBケーブルでボードとホストマシンを接続し、ボードを検出する
+
+![](./pict/L475_IOT.jpg)
+
 ```
 mbed detect
 ```
