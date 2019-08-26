@@ -45,7 +45,7 @@ $ cd mbed-os-example-blinky
 
 * USBケーブルでボードとホストマシンを接続し、ボードを検出する
 
-![](./pict/L475_IOT.jpg)
+![](./pict/L475_IOT.JPG)
 
 ```
 mbed detect
