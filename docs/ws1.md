@@ -81,8 +81,10 @@ $ cp BUILD/<target>/<toolchain>/mbed-os-example-blinky.bin <mount point>
 実行例: 
 
 ```shell
-$ cp BUILD/DISCO_L475VG_IOT01A/GCC_ARM/mbed-os-example-blinky.bin /Volumes/DIS_L4IOT/ (MacOS) 
-$ copy BUILD/DISCO_L475VG_IOT01A/GCC_ARM/mbed-os-example-blinky.bin D: (windows)
+# MacOSの場合
+$ cp BUILD/DISCO_L475VG_IOT01A/GCC_ARM/mbed-os-example-blinky.bin /Volumes/DIS_L4IOT/
+# Windowsの場合
+> copy .\BUILD\DISCO_L475VG_IOT01A\GCC_ARM\mbed-os-example-blinky.bin D:
 ```
 
 ## シリアルポートをモニタする
