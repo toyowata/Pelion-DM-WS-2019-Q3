@@ -18,11 +18,11 @@ https://en.wikipedia.org/wiki/Echo_Protocol
 
 このワークショップのサンプルコードはGitHubのリポジトリではありません。以下のコマンドでインポートします。
 
-```
+```shell
 $ mbed import https://os.mbed.com/teams/Mbed-IoT-workshop/code/mbed-os-workshop-sockets
 ```
 DISCO_L475VG_IOT01A用にビルドを行います。
-```
+```shell
 $ cd mbed-os-workshop-sockets
 $ mbed compile -m DISCO_L475VG_IOT01A -t gcc_arm
 ```
@@ -70,7 +70,7 @@ https://github.com/ARMmbed/wifi-ism43362
 
 以下のコマンドでWi-Fiドライバを追加します。
 
-```
+```shell
 $ mbed add wifi-ism43362
 ```
 

@@ -14,8 +14,8 @@ https://os.mbed.com/docs/mbed-os/v5.13/tools/installation-and-setup.html
 
 インストール後に、最新版のモジュールにアップデートします。コマンドプロンプトやターミナルから以下のコマンドを実行します。
 
-```
-$ pip install -U mbed-cloud-sdk mbed-cli manifest-tool
+```shell
+$ pip install -U mbed-cloud-sdk mbed-cli manifest-tool mbed-ls==1.7.8 mbed-host-tests==1.5.8 mbed-greentea==1.7.2
 ```
 Macの場合は、`--user`オプションも指定してください。
 
@@ -38,7 +38,7 @@ https://bugs.python.org/issue27731
 * ターミナルやコマンドプロンプトを開く
 * 作業用ディレクトリのルートに移動する
 
-```
+```shell
 $ mbed import http://github.com/ARMmbed/mbed-os-example-blinky
 $ cd mbed-os-example-blinky
 ```
@@ -47,8 +47,8 @@ $ cd mbed-os-example-blinky
 
 ![](./pict/L475_IOT.JPG)
 
-```
-mbed detect
+```shell
+$ mbed detect
 ```
 以下の情報が表示されます。
 ```
@@ -63,24 +63,24 @@ Supported toolchains: 4
 
 ## サンプルコードをビルドする
 
-```
-mbed compile -t <toolchain> -m <module>  
+```shell
+$ mbed compile -t <toolchain> -m <module>  
 ```
 このワークショップではtoolchainに、GCC_ARMが指定可能です。moduleには、mbed detectコマンドで表示された Target名を使用します。  
 
 実行例:
-```
+```shell
 $ mbed compile -t GCC_ARM -m DISCO_L475VG_IOT01A
 ```
 
 ビルドされたバイナリファイルをUSBマスストレージにドラッグアンドドロップするか、以下のようにコマンドを実行します。
 
-```
-cp BUILD/<target>/<toolchain>/mbed-os-example-blinky.bin <mount point>
+```shell
+$ cp BUILD/<target>/<toolchain>/mbed-os-example-blinky.bin <mount point>
 ```
 実行例: 
 
-```
+```shell
 $ cp BUILD/DISCO_L475VG_IOT01A/GCC_ARM/mbed-os-example-blinky.bin /Volumes/DIS_L4IOT/ (MacOS) 
 $ copy BUILD/DISCO_L475VG_IOT01A/GCC_ARM/mbed-os-example-blinky.bin D: (windows)
 ```
