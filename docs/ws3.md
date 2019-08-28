@@ -135,9 +135,11 @@ $ mbed compile -t GCC_ARM -m DISCO_L475VG_IOT01A
 バイナリファイルの書き込み例：
 
 ```shell
+# MacOSの場合
 $ cp ./BUILD/DISCO_L475VG_IOT01A/GCC_ARM/pelion-example-disco-iot01.bin /Volumes/DIS_L4IOT/
+# Windowsの場合
+> copy .\BUILD\DISCO_L475VG_IOT01A\GCC_ARM\pelion-example-disco-iot01.bin D:
 ```
-
 
 ## シリアル出力
 
