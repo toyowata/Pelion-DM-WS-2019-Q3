@@ -59,8 +59,9 @@ $ manifest-tool -h
 上記コマンドでエラーが出る場合は、manifestツールをインストールします。Macの場合は、`--user`オプションも指定します。
 
 ```shell
-$ pip install –U "git+https://github.com/ARMmbed/manifest-tool"
+$ pip install -U "git+https://github.com/ARMmbed/manifest-tool"
 ```
+Access permissionに関連するエラーが出た場合は、`--user`オプションも指定してください。
 
 ## PelionポータルサイトからAPIキーを取得する
 
@@ -86,7 +87,7 @@ $ cd pelion-example-disco-iot01
 $ mbed dm init -d "arm.com" --model-name "My-device-rev-1" -f -v
 ```
 
-コマンドプロンプトに従って、証明書署名要求を生成します（これは、開発者モードの資格情報の作成に使用されます）。カントリーには2文字のカントリーコードを使用します（日本=JP）。以下に設定例を示します。
+表示される質問にしたがって、証明書署名要求を生成します（これは、開発者モードの資格情報の作成に使用されます）。カントリーには2文字のカントリーコードを使用します（日本=JP）。以下に設定例を示します。
 
 ```
 In which country is the subject located? JP 
@@ -101,7 +102,7 @@ How long (in days) should the certificate be valid? [90]
 
 ![](./pict/dev_cert.png)
 
-## アプリケーションにネットワークの情報を設定する
+## アプリケーションにネットワーク情報を設定する
 
 `mbed_app.json`ファイルをエディタで開いて編集します。
 
@@ -110,7 +111,7 @@ How long (in days) should the certificate be valid? [90]
             "nsapi.default-wifi-ssid"                   : "\"SSID\"",
             "nsapi.default-wifi-password"               : "\"Password\""
 ```
-`SSID`と`Password`の部分を、使用するWi-Fiアクセスポイントの設定に変更します。
+`SSID`と`Password`の部分を、使用するWi-Fiアクセスポイントの設定に変更します（ワークショップによって異なるので注意してください）。
 
 設定例：
 ```json
@@ -119,8 +120,6 @@ How long (in days) should the certificate be valid? [90]
             "nsapi.default-wifi-password"               : "\"ArmWorkshop\""
 ```
 
-`SSID`と`Password`はワークショップによって異なるので、確認してください。
-
 ## ビルドとバイナリの書き込み
 
 以下のコマンドでビルドします。
@@ -128,11 +127,18 @@ How long (in days) should the certificate be valid? [90]
 ```shell
 $ mbed compile -t GCC_ARM -m DISCO_L475VG_IOT01A
 ```
-ビルドされたバイナリファイルをUSBドライブにドラッグアンドドロップして書き込みます。バイナリファイルは、`<your board example>/BUILD/<your board type>/GCC_ARM/`に生成されています。
+ビルドされたバイナリファイルをUSBドライブにドラッグアンドドロップ、またはコピーコマンドで書き込みます。バイナリファイルは、`<your board example>/BUILD/<your board type>/GCC_ARM/`配下に生成されています。
 
 ```
 ./BUILD/DISCO_L475VG_IOT01A/GCC_ARM/pelion-example-disco-iot01.bin
 ```
+バイナリファイルの書き込み例：
+
+```shell
+$ cp ./BUILD/DISCO_L475VG_IOT01A/GCC_ARM/pelion-example-disco-iot01.bin /Volumes/DIS_L4IOT/
+```
+
+
 ## シリアル出力
 
 TeraTerm, CoolTerm, Mbed CLI等の各種シリアルモニタが使用可能です。ボーレートは、115200です。  

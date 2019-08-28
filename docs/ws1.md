@@ -17,7 +17,7 @@ https://os.mbed.com/docs/mbed-os/v5.13/tools/installation-and-setup.html
 ```shell
 $ pip install -U mbed-cloud-sdk mbed-cli manifest-tool mbed-ls==1.7.8 mbed-host-tests==1.5.8 mbed-greentea==1.7.2
 ```
-Macの場合は、`--user`オプションも指定してください。
+access permissionに関連するエラーが出る場合は、`--user`オプションも指定してください。
 
 ## Windowsのみ：MAX_PATH制限とGCC_ARMでのコンパイルエラー
 
