@@ -1,4 +1,4 @@
-# Pelion Device Management ハンズオンワークショップ
+# Arm&reg; Pelion&trade; Device Management ハンズオンワークショップ
 
 * [事前準備](./docs/ws0.md)
 * [Workshop 1 : Mbed CLIのインストールとビルド](./docs/ws1.md)
