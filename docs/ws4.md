@@ -1,5 +1,5 @@
 # Workshop 4 : Firmware update
-
+<!---
 ## Why is the hands-on different?
 * No multi device campaign. Everyone update their own single device.
 * *Not preceded by Factory Provisioning with FCU, use mbed dm init to generate
@@ -7,60 +7,58 @@ VendorID, ClassID, firmware integrity certificate.
 * No Mbed Cloud Portal GUI, use API with Mbed Cloud API key to directly talk to Mbed
 Cloud API Gateway using mbed dm update command.
 * Hands-on workshop only. Do not generate a private key with no hardware protection on a computer and directly connect it to the internet - especially if that private key can sign your manifests and all your devices in the field with the certificate with the corresponding private key will trust whatever it signs.
-
+--->
 ## 新しいファームウェアをビルドする
 
-* Ensure that you have completed the hands-on session "Mbed CLI Device Management“
-* This relies on mbed dm init having been run before the initial firmware build
-* Edit the main.cpp file so that it prints something new to the serial terminal, so you can tell the update has succeeded.
-* Recompile the application
+まず、`Workshop 3 : Pelion Device Management`のワークショップが正しく実行されたことを確認してください。ファームウェアのアップデートでは、Workshop 3の手順で正しく`mbed dm init`が実行されていることが必要になるためです。
 
-## Firmware update process
-* Write the new firmware update and compile the binary
-* Using the manifest-tool with the cloud SDK behind the “dm” command:
-* Create a manifest
-* Publish the manifest to Pelion Device Management
-* Upload the new firmware to Pelion Device Management by looking for the *_update.bin file in the
-build directory for the specified target device.
-* Start the campaign for the selected device(s)
+* `main.cpp`ファイルを編集し、新しい文字列がシリアルターミナルに出力されるように変更する（アプリケーションが正しくアップデートされているか確認するため）
+* アプリケーションをリビルドする
 
-## Firmware update commands
+## ファームウェアアップデートのプロセス
 
-(Before running update, connect with Putty to serial console to see the process in action)
+* 新しいファームウェアを作成・ビルドし、バイナリを生成する
+* Mbed CLIの`dm`コマンドでは、Cloud SDKとマニフェストツールを使用し、以下を実施
+  * マニフェストの作成
+  * マニフェストをPelion Device Managementに転送
+  * ターゲットデバイスのビルドディレクトリ内の `"*_update.bin"` ファイルを検索し、新しいファームウェアをPelion Device Managementにアップロード
+  * 選択したデバイスのキャンペーンを開始
 
-* Ensure that your API key is set (if using a new command terminal since it was previously set)
+## ファームウェアアップデートのコマンド
+アップデートを行う前に、シリアルコンソールアプリケーションを接続し、実行している状況がモニタできるようにしてください。
+
+* API keyが正しく設定されていることを確認する（Workshop 3で設定済み）
 ```shell
-# mbed config -G CLOUD_SDK_API_KEY <api key>
+$ mbed config -G CLOUD_SDK_API_KEY <api key>
 ```
-* Run the mbed dm update command from the “example” directory (for DISCO it is
-c:\pelion-example-disco-iot01)
+* サンプルコードのディレクトリ (c:\pelion-example-disco-iot01) で、`mbed dm update`コマンドを実行する（-DでデバイスIDを指定する）
+```shell
+$ mbed dm update device -D <device_id> -t <toolchain> -m <target>
 ```
-mbed dm update device -D <device_id> -t <toolchain> -m <target>
+実行例:
+```shell
+$ mbed dm update device -D 016c04e037b100000000000100100372 -t GCC_ARM -m DISCO_L475VG_IOT01A
 ```
-• For example:
-```
-mbed dm update device -D 016c04e037b100000000000100100372 -t GCC_ARM -m DISCO_L475VG_IOT01A
-```
-The Device ID can be found in the Portal, or the serial output from the device. Device ID and Endpoint Name by default is identical with Developer Flow (Factory likely different)
+デバイスIDは、ポータルまたはデバイスからのシリアル出力で確認できます。デフォルトでは、デバイスIDとエンドポイント名は開発者フローと同じです
 
-## Manifest tool output
+## Manifestツールの出力
 
-## Device serial console at start of update process
+## デバイスからのシリアル出力（アップデートプロセスの開始）
+## デバイスからのシリアル出力（アップデートプロセスの終了）
 
-## Device serial console at end of update process
+## トラブルシューティング
 
-## Troubleshooting
+* `mbed dm update`コマンドで指定したデバイスIDが正しいか確認する
+* デバイスか接続されているか確認する（ポータルでリソースが更新されているか）
+* 実行ををキャンセルする必要がある場合（たとえば、Ctrl-Cを使用）、ポータルから残っている可能性のあるマニフェスト、ファームウェア、およびキャンペーンを削除する
 
-* Check the device ID in the mbed dm update command is correct.
-* Check the device is still connected (you can see resources updating in portal)
-* If you have had to cancel previous attempts (e.g. with ctrl-C) use the portal to delete any manifests, firmware and campaigns that may have been left around
+## オプション – ポータルを使ってアップデートする
 
-## Optional – update using the Portal
+時間がある場合は、以下の手順を試してください。これは、mbed dmコマンドで内部的に実行している手順を分割して行います。  
+https://www.pelion.com/docs/device-management/current/updating-firmware/preparing-manifests.html
 
-* Do try to do this if you have time – it shows you the steps that the mbed dm command is doing for you.
-* The process is described in the documentation from here: https://www.pelion.com/docs/device-management/current/updating-firmware/preparing-manifests.html
-* steps:
-    * [first edit main.cpp to print something new, and rebuild the firmware]
-    * using the Portal, upload the firmware
-    * use manifest-tool on the command line to create the manifest
-    * upload
+手順:
+* `main.cpp`を編集し、シリアル出力文字を変更する
+* ポータルを使ってファームウェアをアップロードする
+* コマンドラインからmanifest-toolを使ってマニフェストを作成する
+* マニフェストをアップロードする
