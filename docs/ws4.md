@@ -47,9 +47,87 @@ $ mbed dm update device -D 016c04e037b100000000000100100372 -t GCC_ARM -m DISCO_
 
 ## Manifestツールの出力
 
-## デバイスからのシリアル出力（アップデートプロセスの開始）
-## デバイスからのシリアル出力（アップデートプロセスの終了）
+![](./pict/fw_update.png)
 
+## デバイスからのシリアル出力（アップデートプロセスの開始）
+```
+Connecting to the network using Wifi...
+Connected to the network successfully. IP address: 192.168.0.139
+Initializing Pelion Device Management Client...
+Initialized Pelion Client. Registering...
+Registered to Pelion Device Management. Endpoint Name: 016ce0dd4fe200000000000100100328
+Firmware download requested
+Authorization granted
+Downloading: [\                                                 ] 0 %
+Downloading: [+|                                                ] 2 %
+Downloading: [++\                                               ] 5 %
+Downloading: [++++/                                             ] 8 %
+Downloading: [+++++|                                            ] 10 %
+Downloading: [++++++-                                           ] 13 %
+Downloading: [+++++++|                                          ] 15 %
+Downloading: [+++++++++\                                        ] 18 %
+Downloading: [++++++++++|                                       ] 20 %
+Downloading: [+++++++++++/                                      ] 23 %
+Downloading: [++++++++++++|                                     ] 24 %
+Downloading: [+++++++++++++/                                    ] 27 %
+Downloading: [++++++++++++++|                                   ] 29 %
+Downloading: [++++++++++++++++-                                 ] 32 %
+Downloading: [+++++++++++++++++|                                ] 34 %
+Downloading: [++++++++++++++++++-                               ] 37 %
+Downloading: [+++++++++++++++++++/                              ] 39 %
+Downloading: [++++++++++++++++++++/                             ] 41 %
+Downloading: [+++++++++++++++++++++|                            ] 43 %
+Downloading: [+++++++++++++++++++++++-                          ] 46 %
+Downloading: [++++++++++++++++++++++++|                         ] 48 %
+Downloading: [+++++++++++++++++++++++++-                        ] 51 %
+Downloading: [+++++++++++++++++++++++++++/                      ] 54 %
+Downloading: [++++++++++++++++++++++++++++\                     ] 56 %
+```
+## デバイスからのシリアル出力（アップデートプロセスの終了）
+```
+Downloading: [++++++++++++++++++++++++++++++++++++++++++++++++++] 100 %
+Download completed
+Firmware install requested
+Authorization granted
+[BOOT] Mbed Bootloader
+[BOOT] ARM: 00000000000000000000
+[BOOT] OEM: 00000000000000000000
+[BOOT] Layout: 0 80096F4
+[BOOT] Active firmware integrity check
+[BOOT] SHA256: 616025E51607E35415899BD5A9E9EC2AEF51E030C096809C34B7E4C31D1C74A0
+[BOOT] Version: 1567140461
+[BOOT] Slot 0 firmware integrity check:
+[BOOT] SHA256: 7B0DFA248F481A71284A1407A36F5C572AC9896A081C6BA27D65945FE3EB2A73
+[BOOT] Version: 1567140725
+[BOOT] Update active firmware using slot 0:
+[BOOT] Verify new active firmware:
+[BOOT] New active firmware is valid
+[BOOT] Application's start address: 0x8010400
+[BOOT] Application's jump address: 0x805C919
+[BOOT] Application's stack address: 0x10008000
+[BOOT] Forwarding to application...
+
+
+Starting Simple Pelion Device Management Client example
+You can hold the user button during boot to format the storage and change the device identity.
+
+Sensors configuration:
+Invalid new address!
+HTS221  humidity & temperature    = 0xBC
+LPS22HB pressure & temperature    = 0xB1
+LIS3MDL magnetometer              = 0x3D
+LSM6DSL accelerometer & gyroscope = 0x6A
+
+Connecting to the network using Wifi...
+Connected to the network successfully. IP address: 192.168.0.139
+
+
+*** My Pelion example v1.0 ***
+
+Initializing Pelion Device Management Client...
+Initialized Pelion Client. Registering...
+Registered to Pelion Device Management. Endpoint Name: 016ce0dd4fe200000000000100100328
+```
 ## トラブルシューティング
 
 * `mbed dm update`コマンドで指定したデバイスIDが正しいか確認する
