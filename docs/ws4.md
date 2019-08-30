@@ -130,6 +130,12 @@ Registered to Pelion Device Management. Endpoint Name: 016ce0dd4fe20000000000010
 ```
 ## トラブルシューティング
 
+* 以下のエラーが表示される場合は、正しいデバイスクレデンシャルが使われていないので、アップデート用のストレージを初期化する（青いボタンを押し続けて黒いボタンを押してリセット、立ち上がったら青いボタンを離す）
+```
+[SMCC] Error occurred : MbedCloudClient::UpdateWarningCertificateNotFound
+[SMCC] Error code : 1025
+[SMCC] Error details : Update has failed, check MbedCloudClient::Error
+```
 * `mbed dm update`コマンドで指定したデバイスIDが正しいか確認する
 * デバイスか接続されているか確認する（ポータルでリソースが更新されているか）
 * 実行ををキャンセルする必要がある場合（たとえば、Ctrl-Cを使用）、ポータルから残っている可能性のあるマニフェスト、ファームウェア、およびキャンペーンを削除する
