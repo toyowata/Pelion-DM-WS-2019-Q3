@@ -14,6 +14,10 @@ Cloud API Gateway using mbed dm update command.
 
 * `main.cpp`ファイルを編集し、新しい文字列がシリアルターミナルに出力されるように変更する（アプリケーションが正しくアップデートされているか確認するため）
 * アプリケーションをリビルドする
+```shell
+$ mbed compile -t GCC_ARM -m DISCO_L475VG_IOT01A
+```
+ここでは、.binファイルのコピーは行わないでください。
 
 ## ファームウェアアップデートのプロセス
 
