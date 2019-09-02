@@ -16,4 +16,4 @@ https://www.st.com/ja/development-tools/stsw-link009.html
 当日は、Wi-Fiネットワークに接続可能なノートPCをお持ちください。Mac, Windowsどちらでも問題ありません。上記のソフトウェアがインストールされている必要があります。  
 ハンズオンワークショップでは、STM32 Discovery kit (STM32L475)を使用します。ホストPCとはUSB接続を行うので、任意のUSBデバイスに読み書きできる必要があります。
 
-# URL https://bit.ly/2MFQ9Aj
+

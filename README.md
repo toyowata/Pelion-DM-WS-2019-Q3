@@ -6,3 +6,4 @@
 * [Workshop 3 : Pelion Device Management](./docs/ws3.md)
 * [Workshop 4 : Firmware update](./docs/ws4.md)
 
+# URL https://bit.ly/2MFQ9Aj
