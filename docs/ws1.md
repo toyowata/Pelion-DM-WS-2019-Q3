@@ -17,7 +17,7 @@ https://os.mbed.com/docs/mbed-os/v5.13/tools/installation-and-setup.html
 ```shell
 $ pip install -U mbed-cloud-sdk mbed-cli manifest-tool mbed-ls==1.7.8 mbed-host-tests==1.5.8 mbed-greentea==1.7.2
 ```
-access permissionに関連するエラーが出る場合は、`--user`オプションも指定してください。
+Access permissionに関連するエラーが出る場合は、`--user`オプションも指定してください。
 
 ## Windowsのみ：MAX_PATH制限とGCC_ARMでのコンパイルエラー
 
@@ -101,3 +101,5 @@ $ cp BUILD/DISCO_L475VG_IOT01A/GCC_ARM/mbed-os-example-blinky.bin /Volumes/DIS_L
 * LEDの点滅パターンを変更する
 
 編集するファイルは、サンプルコードのトップレベルディレクトリ (mbed-os-example-blinky) の main.cpp です。
+
+[（次のワークショップへ）](./ws2.md)

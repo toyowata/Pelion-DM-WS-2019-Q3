@@ -45,7 +45,9 @@ https://portal.mbedcloud.com/login
 
 ## プログラムのインポートとmanifestツールのインストール
 
-コマンドラインから、以下のコマンドを実行します。
+* ターミナルやコマンドプロンプトを開く
+* 作業用ディレクトリのルートに移動する（このプログラムの場合は、パスを短くするためになるべく浅いディレクトリで作業してください）
+* コマンドラインから、以下のコマンドを実行する
 
 ```shell
 $ mbed import https://os.mbed.com/teams/ST/code/pelion-example-disco-iot01/
@@ -56,11 +58,12 @@ manifestツールがインストールされているか確認します。
 $ manifest-tool -h
 ```
 
-上記コマンドでエラーが出る場合は、manifestツールをインストールします。Macの場合は、`--user`オプションも指定します。
+上記コマンドでエラーが出る場合は、manifestツールをインストールします。
 
 ```shell
 $ pip install -U "git+https://github.com/ARMmbed/manifest-tool"
 ```
+
 Access permissionに関連するエラーが出た場合は、`--user`オプションも指定してください。
 
 ## PelionポータルサイトからAPIキーを取得する
@@ -80,7 +83,7 @@ $ mbed config -G CLOUD_SDK_API_KEY <api key>
 
 ## デバイス管理情報を設定する
 
-デバイス開発証明書やファームウェアアップデート用の証明書を作成します。`mbed dm init`コマンドで各種ファイルを作成します。
+デバイス開発証明書やファームウェアアップデート用の証明書を作成します。`mbed dm init`コマンドで各種ファイルをインタラクティブに作成します。
 
 ```shell
 $ cd pelion-example-disco-iot01
@@ -144,7 +147,7 @@ $ cp ./BUILD/DISCO_L475VG_IOT01A/GCC_ARM/pelion-example-disco-iot01.bin /Volumes
 ## シリアル出力
 
 TeraTerm, CoolTerm, Mbed CLI等の各種シリアルモニタが使用可能です。ボーレートは、115200です。  
-Mbed CLIのシリアルもにた機能を使う場合は、以下のコマンドを実行します。
+Mbed CLIのシリアルモニタ機能を使う場合は、以下のコマンドを実行します。
 
 ```shell
 $ mbed sterm -b 115200
@@ -176,3 +179,5 @@ Device Direcotry > Devices > Device details > RESOURCES > 3200/0/5501
 ボード上の青色のユーザボタンを押すと、押した回数がグラフで表示されます。
 
 ![](./pict/portal_graph.png)
+
+[（次のワークショップへ）](./ws4.md)
