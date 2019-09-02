@@ -1,12 +1,15 @@
 # 事前準備
 
-* Mbed 開発アカウントの登録
+* Mbed 開発アカウントの登録  
 https://os.mbed.com/account/signup/
-* Pelionアカウントの取得
+* Pelionアカウントの取得  
 https://www.pelion.com/
-* Mbed CLIとツールチェーンのインストール
+* Mbed CLIとツールチェーンのインストール  
 https://os.mbed.com/docs/mbed-os/v5.13/quick-start/offline-with-mbed-cli.html
 * シリアルターミナルのインストール（TeraTermやCoolTermなど）
+* ホストマシンがWindowsの場合、以下のソフトウェアもインストールしてください。  
+https://www.st.com/ja/development-tools/stsw-link009.html
+
  
 # 注意 
 
