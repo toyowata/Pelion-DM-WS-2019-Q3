@@ -1,4 +1,11 @@
 # Workshop 4 : Firmware update
+
+このワークショップでは、以下を行います。
+
+* 新しいファームウェアのビルド
+* Mbed CLIを使用して、マニフェストの作成とファームウェアのアップロード
+* ファームウェアアップデートの実行と確認
+
 <!---
 ## Why is the hands-on different?
 * No multi device campaign. Everyone update their own single device.
