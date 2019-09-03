@@ -15,6 +15,7 @@ https://os.mbed.com/docs/mbed-os/v5.13/tools/installation-and-setup.html
 インストール後に、最新版のモジュールにアップデートします。コマンドプロンプトやターミナルから以下のコマンドを実行します。
 
 ```shell
+$ python -m pip install --upgrade pip
 $ pip install -U mbed-cloud-sdk mbed-cli manifest-tool mbed-ls==1.7.8 mbed-host-tests==1.5.8 mbed-greentea==1.7.2
 ```
 Access permissionに関連するエラーが出る場合は、`--user`オプションも指定してください。
@@ -86,6 +87,8 @@ $ cp BUILD/DISCO_L475VG_IOT01A/GCC_ARM/mbed-os-example-blinky.bin /Volumes/DIS_L
 # Windowsの場合
 > copy .\BUILD\DISCO_L475VG_IOT01A\GCC_ARM\mbed-os-example-blinky.bin D:
 ```
+
+バイナリファイルをコピーすると、USBマスストレージドライブはアンマウントされ再度マウントされますが、これは正常な動作です（書き込まれたファイルは、ドライブには表示されません）。
 
 ## シリアルポートをモニタする
 
