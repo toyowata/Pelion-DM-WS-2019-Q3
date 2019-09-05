@@ -12,6 +12,15 @@
 
 https://os.mbed.com/docs/mbed-os/v5.13/tools/installation-and-setup.html
 
+インストールされたpythonのバージョンを確認します。
+
+```shell
+$ python --version
+Python 2.7.16
+```
+
+既にほかのバージョンのpythonがインストールされている場合は、環境変数PATHの設定などを変更して、Mbed CLIインストーラでインストールされたバージョンが優先的に実行されているように設定してください。
+
 インストール後に、最新版のモジュールにアップデートします。コマンドプロンプトやターミナルから以下のコマンドを実行します。
 
 ```shell

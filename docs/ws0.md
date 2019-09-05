@@ -9,7 +9,7 @@ https://os.mbed.com/docs/mbed-os/v5.13/quick-start/offline-with-mbed-cli.html
 * シリアルターミナルのインストール（TeraTermやCoolTermなど）
 * ホストマシンがWindowsの場合、以下のソフトウェアもインストールしてください。  
 https://www.st.com/ja/development-tools/stsw-link009.html
-
+* ブラウザは、Google ChromeとFireFoxが推奨です。IEやEdgeだと動かない場合があるので注意してください。
  
 # 注意 
 
